@@ -104,7 +104,7 @@ weather-notification-bot/
 
 **Gabriel Murua** — Automation Engineer  
 📍 La Rioja, Argentina | 🌐 Open to remote  
-[GitHub](https://github.com/rafamurua) · [LinkedIn](https://linkedin.com/in/gabriel-murua)
+[GitHub](https://github.com/rafamurua) · [LinkedIn](https://www.linkedin.com/in/rafael-murua-192874153/)
 
 ---
 
