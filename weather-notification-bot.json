@@ -2,17 +2,6 @@
   "name": "Weather Notification Bot",
   "nodes": [
     {
-      "parameters": {},
-      "type": "n8n-nodes-base.manualTrigger",
-      "typeVersion": 1,
-      "position": [
-        0,
-        0
-      ],
-      "id": "80a9fa20-011f-434d-9eb4-13a5cee070c8",
-      "name": "When clicking ‘Execute workflow’"
-    },
-    {
       "parameters": {
         "conditions": {
           "options": {
@@ -53,7 +42,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        208,
+        176,
         0
       ],
       "id": "277ecb31-b8bf-491d-b75c-9cfe096f8c68",
@@ -107,66 +96,70 @@
     },
     {
       "parameters": {
-        "method": "POST",
-        "url": "https://webhook.site/dda20358-8869-4b84-a793-a171af163888",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
+        "rule": {
+          "interval": [
             {
-              "name": "mensaje",
-              "value": "={{ $json.Mensaje }}"
+              "triggerAtHour": 12
             }
           ]
-        },
-        "options": {}
+        }
       },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.4,
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
       "position": [
-        896,
-        96
+        -48,
+        0
       ],
-      "id": "0173bb42-137b-41f2-a502-8a9f8ec9e88c",
-      "name": "Webhook.site POST Request - False"
+      "id": "7a9aa098-e639-4e33-886f-1a5ad7e50c37",
+      "name": "Schedule All days 12pm"
     },
     {
       "parameters": {
-        "method": "POST",
-        "url": "https://webhook.site/dda20358-8869-4b84-a793-a171af163888",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "mensaje",
-              "value": "={{ $json.Mensaje }}"
-            }
-          ]
-        },
-        "options": {}
+        "chatId": "1226098237",
+        "text": "={{ $json.Mensaje }}",
+        "additionalFields": {}
       },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.4,
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
       "position": [
-        928,
+        912,
         -144
       ],
-      "id": "e1867e02-348e-45ed-a7cb-048fc522d845",
-      "name": "Webhook.site POST Request - True"
+      "id": "b33a279d-e995-4d70-ac42-eae4d5282428",
+      "name": "Send message Telegram - True",
+      "webhookId": "512f63cd-3e77-401a-8a2f-360f29826961",
+      "credentials": {
+        "telegramApi": {
+          "id": "mQRvWpwjriHTqe1M",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "1226098237",
+        "text": "={{ $json.Mensaje }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        928,
+        96
+      ],
+      "id": "b6b57353-f99c-4d34-a99f-de738f3f029e",
+      "name": "Send message Telegram - False",
+      "webhookId": "512f63cd-3e77-401a-8a2f-360f29826961",
+      "credentials": {
+        "telegramApi": {
+          "id": "mQRvWpwjriHTqe1M",
+          "name": "Telegram account"
+        }
+      }
     }
   ],
   "pinData": {},
   "connections": {
-    "When clicking ‘Execute workflow’": {
-      "main": [
-        [
-          {
-            "node": "Weather API - GET Request",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Condition temp_C > 25": {
       "main": [
         [
@@ -200,7 +193,7 @@
       "main": [
         [
           {
-            "node": "Webhook.site POST Request - True",
+            "node": "Send message Telegram - True",
             "type": "main",
             "index": 0
           }
@@ -211,7 +204,18 @@
       "main": [
         [
           {
-            "node": "Webhook.site POST Request - False",
+            "node": "Send message Telegram - False",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule All days 12pm": {
+      "main": [
+        [
+          {
+            "node": "Weather API - GET Request",
             "type": "main",
             "index": 0
           }
@@ -224,7 +228,7 @@
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
-  "versionId": "445f13d2-068b-4ffd-ac31-8fe1f90e77e4",
+  "versionId": "f27239b5-654c-4b8c-9eb0-49ee7d0fe126",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a6d3f137996cccadc319e6009049d2b5789200116f15e5bbdf67b3999e1500e2"
