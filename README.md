@@ -2,7 +2,7 @@
 
 An automated weather monitoring workflow built with n8n that fetches real-time weather data, applies conditional logic, and sends a formatted notification based on current temperature.
 
-> Built as part of my automation portfolio. Demonstrates API integration, conditional branching, and webhook-based notifications using n8n.
+> Built as part of my automation portfolio. Demonstrates API integration, conditional branching, and Telegram notifications using n8n.
 
 ---
 
