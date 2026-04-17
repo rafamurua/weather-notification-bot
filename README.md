@@ -35,11 +35,11 @@ Manual Trigger
 
 | Node | Type | Purpose |
 |---|---|---|
-| When clicking 'Execute workflow' | Trigger | Manual execution trigger |
+| Schedule Trigger | Trigger | Schedule execution trigger - Every day at 12pm |
 | Weather API - GET Request | HTTP Request | Fetches JSON weather data from wttr.in |
 | Condition temp_C > 25 | IF | Branches flow based on temperature |
 | Message variable assignment | Set | Formats the notification message |
-| Webhook.site POST Request | HTTP Request | Sends the result as a POST request |
+| Send Message | Telegram | Sends the result as a telegram message |
 
 ---
 
@@ -47,7 +47,6 @@ Manual Trigger
 
 - **n8n** (self-hosted via Docker)
 - **wttr.in** — free public weather API, no key required
-- **webhook.site** — free webhook testing endpoint
 
 ---
 
@@ -75,7 +74,7 @@ cd weather-notification-bot
 
 - **Change the city:** Edit the HTTP Request URL — replace `La+Rioja,Argentina` with your city
 - **Change the threshold:** Edit the IF node condition — replace `25` with your preferred temperature
-- **Change the destination:** Replace webhook.site URL with your Slack webhook, Gmail node, or any HTTP endpoint
+- **Get the Token Access and Chat ID  :** Get Token Access and Chat ID from Telegram aplication 
 
 ---
 
@@ -96,7 +95,7 @@ weather-notification-bot/
 - Using n8n expressions (`{{ $json.field }}`) to extract and transform JSON data
 - Building conditional branching logic with the IF node
 - Passing data between nodes using the Set node
-- Sending POST requests with a JSON body as a notification mechanism
+- Sending message with a JSON body as a notification mechanism
 
 ---
 
