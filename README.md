@@ -111,7 +111,7 @@ weather-notification-bot/
 ## Next steps
 
 This workflow is a foundation. Planned improvements:
-- [ ] Replace manual trigger with a scheduled trigger (every morning at 8am)
-- [ ] Add Telegram or Slack node instead of webhook.site
+- [x] Replace manual trigger with a scheduled trigger (every morning at 8am)
+- [x] Add Telegram or Slack node instead of webhook.site
 - [ ] Extend to multiple cities
 - [ ] Add AI node to generate a natural language weather summary using OpenAI
