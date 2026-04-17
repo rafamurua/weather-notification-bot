@@ -22,13 +22,13 @@ An automated weather monitoring workflow built with n8n that fetches real-time w
 ## How it works
 
 ```
-Manual Trigger
+Schedule Trigger
   → Weather API - GET Request       (fetches real-time weather from wttr.in)
     → Condition: temp_C > 25        (conditional branch)
       → [true]  Message assignment  (formats "hot weather" message)
-        → Webhook POST              (sends notification)
+        → Telegram              (sends message)
       → [false] Message assignment  (formats "cool weather" message)
-        → Webhook POST              (sends notification)
+        → Telegram              (sends message)
 ```
 
 ### Nodes used
